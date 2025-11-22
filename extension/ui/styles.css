@@ -1,0 +1,393 @@
+#sl-extension-root .readonly-section {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+}
+
+#sl-extension-root .readonly-intro {
+  color: #6b7280 !important;
+  font-size: 14px !important;
+  margin: 0 !important;
+}
+
+#sl-extension-root .readonly-scroll {
+  max-height: 320px !important;
+  overflow-y: auto !important;
+  padding-right: 6px !important;
+}
+
+#sl-extension-root .readonly-scroll::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+#sl-extension-root .readonly-scroll::-webkit-scrollbar-thumb {
+  background: #d1d5db !important;
+  border-radius: 3px !important;
+}
+
+/* Scoped styles for the injected UI */
+
+/* Strong reset for the root container and all children */
+#sl-extension-root {
+  all: initial; /* Reset all inherited properties */
+  position: fixed !important;
+  z-index: 2147483647 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  color: #1a1a1a !important;
+  background: transparent !important; /* Let the child container handle bg */
+  display: none; /* Hidden by default */
+  width: 400px !important;
+  max-height: 600px !important;
+}
+
+/* Reset all elements inside */
+#sl-extension-root * {
+  all: unset;
+  box-sizing: border-box !important;
+  font-family: inherit !important;
+}
+
+/* Re-apply standard display properties since 'all: unset' makes everything inline */
+#sl-extension-root div,
+#sl-extension-root p,
+#sl-extension-root h1,
+#sl-extension-root h2,
+#sl-extension-root form,
+#sl-extension-root section,
+#sl-extension-root header,
+#sl-extension-root footer {
+  display: block;
+}
+
+/* Container */
+#sl-extension-root .popup-container {
+  background: #ffffff !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 600px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#sl-extension-root .popup-body {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+  padding: 20px !important;
+}
+
+#sl-extension-root .popup-content {
+  flex: 1 !important;
+  overflow: visible !important;
+  padding-right: 4px !important;
+}
+
+#sl-extension-root .footer-header {
+  margin-top: auto !important;
+  width: 100% !important;
+  background: #ffffff !important;
+  padding: 16px 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+#sl-extension-root .footer-action {
+  width: 100% !important;
+}
+
+#sl-extension-root .footer-error {
+  margin: 0 !important;
+}
+
+/* Header */
+#sl-extension-root .header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  cursor: move !important;
+  user-select: none !important;
+  position: relative !important;
+  width: 100% !important;
+}
+
+#sl-extension-root .logo {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 6px !important;
+  display: block !important;
+}
+
+#sl-extension-root .header-title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #111827 !important;
+  margin: 0 !important;
+}
+
+#sl-extension-root .close-button {
+  margin-left: auto !important;
+  background: transparent !important;
+  border: none !important;
+  font-size: 28px !important;
+  line-height: 1 !important;
+  color: #6b7280 !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 4px !important;
+  transition: all 0.2s !important;
+}
+
+#sl-extension-root .close-button:hover {
+  background: #f3f4f6 !important;
+  color: #111827 !important;
+}
+
+/* Loading & Error States */
+#sl-extension-root .loading-container,
+#sl-extension-root .error-container,
+#sl-extension-root .not-linkedin-container {
+  text-align: center !important;
+  padding: 32px 16px !important;
+  width: 100% !important;
+}
+
+#sl-extension-root .spinner {
+  display: block !important;
+  width: 40px !important;
+  height: 40px !important;
+  border: 3px solid #e5e7eb !important;
+  border-top-color: #3b82f6 !important;
+  border-radius: 50% !important;
+  animation: sl-spin 0.8s linear infinite !important;
+  margin: 0 auto 16px !important;
+}
+
+@keyframes sl-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#sl-extension-root .loading-text,
+#sl-extension-root .error-text,
+#sl-extension-root .not-linkedin-text {
+  display: block !important;
+  color: #6b7280 !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  margin-bottom: 12px !important;
+}
+
+#sl-extension-root .error-text {
+  color: #dc2626 !important;
+}
+
+/* Startup Info */
+#sl-extension-root .startup-info {
+  margin-bottom: 24px !important;
+  display: block !important;
+}
+
+#sl-extension-root .startup-name {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #111827 !important;
+  margin-bottom: 8px !important;
+  display: block !important;
+}
+
+#sl-extension-root .startup-tagline {
+  font-size: 14px !important;
+  color: #6b7280 !important;
+  line-height: 1.5 !important;
+  display: block !important;
+}
+
+/* Buttons */
+#sl-extension-root .actions {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+#sl-extension-root .button,
+#sl-extension-root .retry-button {
+  padding: 10px 16px !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+#sl-extension-root .button:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+#sl-extension-root .button-primary,
+#sl-extension-root .retry-button {
+  background: #3b82f6 !important;
+  color: white !important;
+}
+
+#sl-extension-root .button-primary:hover:not(:disabled),
+#sl-extension-root .retry-button:hover {
+  background: #2563eb !important;
+}
+
+#sl-extension-root .button-secondary {
+  background: #f3f4f6 !important;
+  color: #374151 !important;
+}
+
+#sl-extension-root .button-secondary:hover:not(:disabled) {
+  background: #e5e7eb !important;
+}
+
+#sl-extension-root .button-success {
+  background: #10b981 !important;
+  color: white !important;
+}
+
+/* Form */
+#sl-extension-root .form-container {
+  margin-bottom: 24px !important;
+  display: block !important;
+}
+
+#sl-extension-root .readonly-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+#sl-extension-root .readonly-field {
+  padding: 12px 16px !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  background: #f9fafb !important;
+}
+
+#sl-extension-root .readonly-label {
+  display: block !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: #6b7280 !important;
+  margin-bottom: 4px !important;
+}
+
+#sl-extension-root .readonly-value {
+  display: block !important;
+  font-size: 14px !important;
+  color: #111827 !important;
+  word-break: break-word !important;
+}
+
+#sl-extension-root .form-group {
+  margin-bottom: 16px !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+#sl-extension-root .form-label {
+  display: block !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #374151 !important;
+  margin-bottom: 6px !important;
+  width: 100% !important;
+}
+
+#sl-extension-root .form-input,
+#sl-extension-root .form-textarea {
+  display: block !important;
+  width: 100% !important;
+  padding: 8px 12px !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 6px !important;
+  font-size: 14px !important;
+  font-family: inherit !important;
+  color: #111827 !important;
+  background: white !important;
+  transition: border-color 0.2s !important;
+  margin: 0 !important;
+}
+
+#sl-extension-root .form-input:focus,
+#sl-extension-root .form-textarea:focus {
+  outline: none !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1) !important;
+}
+
+#sl-extension-root .form-textarea {
+  resize: vertical !important;
+  min-height: 80px !important;
+}
+
+#sl-extension-root .form-hint {
+  display: block !important;
+  font-size: 12px !important;
+  color: #6b7280 !important;
+  margin-top: 4px !important;
+}
+
+/* Success Message */
+#sl-extension-root .success-message {
+  padding: 16px !important;
+  background: #ecfdf5 !important;
+  border: 1px solid #10b981 !important;
+  border-radius: 6px !important;
+  margin-bottom: 16px !important;
+  display: block !important;
+}
+
+#sl-extension-root .success-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #065f46 !important;
+  margin-bottom: 4px !important;
+  display: block !important;
+}
+
+#sl-extension-root .success-text {
+  font-size: 13px !important;
+  color: #047857 !important;
+  display: block !important;
+}
+
+/* Scrollbar for root */
+#sl-extension-root .popup-container::-webkit-scrollbar {
+  width: 8px !important;
+}
+#sl-extension-root .popup-container::-webkit-scrollbar-track {
+  background: #f1f1f1 !important;
+  border-radius: 4px !important;
+}
+#sl-extension-root .popup-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1 !important;
+  border-radius: 4px !important;
+}
